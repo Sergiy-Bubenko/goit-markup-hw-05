@@ -81,6 +81,7 @@ ul {
 .link {
   color: var(--main-text-color);
   text-decoration: none;
+  display: inline-block;
 }
 
 /* nav */
@@ -101,6 +102,22 @@ ul {
   display: inline-block;
   padding-top: 32px;
   padding-bottom: 32px;
+}
+
+.main-nav-on::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--third-text-color);
+}
+
+.main-nav-link {
+  position: relative;
 }
 
 .main-nav-link:not(:last-child) {
@@ -127,8 +144,8 @@ ul {
 }
 
 .logo-top {
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 24px;
+  padding-bottom: 25px;
   margin-right: 93px;
 }
 
