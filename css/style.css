@@ -34,7 +34,7 @@ html {
   --icon-color-one: #afb1b8;
 
   /* анимацыя */
-  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --animation: 5000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* main parameters */
@@ -419,6 +419,28 @@ ul {
   line-height: 1.9;
 }
 
+.container-collection-projects-details {
+  position: relative;
+  overflow: hidden;
+}
+
+.collection-projects-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  padding: 63px 24px;
+  margin-bottom: 0;
+
+  color: var(--main-white-color);
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translatey(100%);
+  transition: transform var(--animation);
+}
+
 .collection-link {
   border-radius: 0px 0px 4px 4px;
 }
@@ -445,6 +467,10 @@ ul {
 
 .collection-items:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.collection-items:hover .collection-projects-details {
+  transform: translatey(0);
 }
 
 .collection-items:nth-child(3n + 3) {
@@ -563,33 +589,40 @@ ul {
 /* модальное окно героя */
 .backdrop {
   position: fixed;
-
   top: 0;
   left: 0;
 
   height: 100%;
   width: 100%;
+
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity var(--animation);
 }
 
 .backdrop.is-hidden {
-  opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  opacity: 0;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: transform var(--animation);
 }
 
 .modal {
   position: absolute;
-
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   width: 528px;
   height: 581px;
   border-radius: 4px;
   background-color: rgb(255, 255, 255);
   opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--animation);
 }
 
 .cursor-pointer {
