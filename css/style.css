@@ -32,6 +32,9 @@ html {
   --second-text-color: #757575;
   --third-text-color: #2196f3;
   --icon-color-one: #afb1b8;
+
+  /* анимацыя */
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* main parameters */
@@ -82,6 +85,7 @@ ul {
   color: var(--main-text-color);
   text-decoration: none;
   display: inline-block;
+  transition: color var(--animation);
 }
 
 /* nav */
@@ -108,8 +112,8 @@ ul {
   content: '';
   position: absolute;
   bottom: -1px;
-
   display: block;
+
   height: 4px;
   width: 100%;
   border-radius: 2px;
@@ -170,6 +174,7 @@ ul {
 
 .icon-nav-up {
   margin-right: 10px;
+  transition: fill Var(--animation);
 }
 
 .icon-nav-up-item:hover {
@@ -217,12 +222,12 @@ ul {
   letter-spacing: 0.06em;
   background-color: var(--third-text-color);
   color: var(--main-white-color);
+  transition: background-color var(--animation);
 }
 
 .button-one:hover,
 .button-one:focus {
   background-color: #188ce8;
-  color: var(--main-white-color);
 }
 
 .button-two {
@@ -237,6 +242,7 @@ ul {
   border-radius: 4px;
   background-color: var(--section-bg-color);
   color: var(--main-text-color);
+  transition: background-color var(--animation), color var(--animation), box-shadow var(--animation);
 }
 
 .button-two:hover,
@@ -357,6 +363,7 @@ ul {
   justify-content: center;
   fill: var(--icon-color-one);
   border-radius: 50%;
+  transition: fill var(--animation), background-color var(--animation);
 }
 
 .our-team-contact-link:hover,
@@ -433,6 +440,7 @@ ul {
 .collection-items {
   margin-right: 30px;
   margin-bottom: 30px;
+  transition: box-shadow var(--animation);
 }
 
 .collection-items:hover {
@@ -462,6 +470,7 @@ ul {
   fill: var(--icon-color-one);
   border: 1px solid var(--icon-color-one);
   border-radius: 4px;
+  transition: fill var(--animation), border var(--animation);
 }
 
 .regular-customers-link:focus,
@@ -543,10 +552,55 @@ ul {
   fill: var(--main-white-color);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--animation);
 }
 
 .footer-contact-link:hover,
 .footer-contact-link:focus {
-  fill: var(--main-white-color);
   background-color: var(--third-text-color);
+}
+
+/* модальное окно героя */
+.backdrop {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  opacity: 1;
+}
+
+.cursor-pointer {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: inherit;
 }
